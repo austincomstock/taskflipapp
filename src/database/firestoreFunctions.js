@@ -6,15 +6,15 @@ import {
   onSnapshot,
   doc,
   setDoc,
-  getDocs,
+  // getDocs,
   updateDoc,
   deleteDoc,
-  query,
+  // query,
 } from "firebase/firestore";
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 import "firebase/compat/firestore";
-import { setData } from "firebase/firestore";
+// import { setData } from "firebase/firestore";
 import { collection } from "firebase/firestore";
 
 // The instructor uses this in his code
@@ -66,7 +66,6 @@ export function watchBoard(setData) {
     if (user.data()) {
       // Board exists
       console.log("board exists");
-      // console.log(user.data());
       setData(user.data());
     } else {
       // Board does NOT exisit
@@ -129,20 +128,6 @@ export function watchColumns(setData) {
       returnData[col.id] = col.data();
     });
     setData(returnData);
-
-    // columns.forEach((col) => {
-    //   const tasks =
-    //     getDocs(collection(db, "boards", uid, "columns", col.id, "tasks")) ??
-    //     [];
-    //   return (returnData[col.id] = {
-    //     ...col.data(),
-    //     // tasks: tasks?.forEach((task) => {
-    //     //   return task.data();
-    //     // }),
-    //   });
-    // });
-    // console.log(returnData);
-    // setData(returnData);
   });
 
   return unsub;
@@ -177,8 +162,6 @@ export function deleteTasks(taskIds) {
 // SETTASK FUNCTION
 export function setTask(taskId, data) {
   const uid = auth.currentUser.uid;
-  // const board = doc(db, "boards", uid);
-  // const tasks = collection(board, "tasks");
   const taskDoc = doc(db, "boards", uid, "tasks", taskId);
 
   return setDoc(taskDoc, data, { merge: true });
@@ -187,8 +170,6 @@ export function setTask(taskId, data) {
 // PUSHTASKID FUNCTION
 export function pushTaskId(columnId, taskId) {
   const uid = auth.currentUser.uid;
-  // const board = doc(db, "boards", uid);
-  // const column = collection(db, "columns", uid, columnId); - Tony helped here, needs to be doc
   const column = doc(db, "boards", uid, "columns", columnId);
   return updateDoc(column, {
     taskIds: firebase.firestore.FieldValue.arrayUnion(taskId),
@@ -198,7 +179,6 @@ export function pushTaskId(columnId, taskId) {
 // POPTASKID FUNCTION
 export function popTaskId(columnId, taskId) {
   const uid = auth.currentUser.uid;
-  // const board = doc(db, "boards", uid);
   const column = doc(db, "boards", uid, "columns", columnId);
 
   return updateDoc(column, {

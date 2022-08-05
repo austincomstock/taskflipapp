@@ -87,7 +87,7 @@ export default function Navbar() {
             src={process.env.PUBLIC_URL + "/logo192.png"}
           />
           <Typography variant="h6" noWrap>
-            TaskFlip
+            Task Flip
           </Typography>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
