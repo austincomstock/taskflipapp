@@ -2,7 +2,7 @@
 import "./App.css";
 import { Component } from "react";
 import { Columns } from "./components/board/Columns";
-import initialData from "./initialData";
+// import initialData from "./initialData";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { SignIn } from "./components/views/SignIn";
 import { SignOut } from "./components/views/SignOut";
