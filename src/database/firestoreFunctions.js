@@ -1,29 +1,16 @@
 // FIREBASE IMPORTS
-// import firebase from "firebase"; - This throws an error, must use import auth import below
-// import { auth } from "../../App.js"; - This throws an error, must use below
 import { auth, db } from "../App.js";
 import {
   onSnapshot,
   doc,
   setDoc,
-  // getDocs,
   updateDoc,
   deleteDoc,
-  // query,
 } from "firebase/firestore";
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 import "firebase/compat/firestore";
-// import { setData } from "firebase/firestore";
 import { collection } from "firebase/firestore";
-
-// The instructor uses this in his code
-// function getBoardRef() {
-//   const uid = auth.currentUser.uid;
-//   const board = doc(db, "boards", uid);
-
-//   return board;
-// }
 
 // WATCHPROFILE FUNCTION
 export function watchProfile(setData) {
@@ -33,10 +20,9 @@ export function watchProfile(setData) {
       // User profile exists
       console.log("profile does exist");
       console.log(user.data());
-      // setData(doc.data()); // - This is what the instructor uses, if I use this I get an error that data is not a function
       setData(user.data());
     } else {
-      // User profile does NOT exisit
+      // User profile does NOT exist
       console.log("profile does not exist");
       const displayName = auth.currentUser.displayName;
       setProfile({
@@ -82,9 +68,8 @@ export function watchBoard(setData) {
 
 // SETBOARD FUNCTION
 export function setBoard(data) {
-  const uid = auth.currentUser.uid; // - instructor removes this from his code
-  const board = doc(db, "boards", uid); // - instructor removes this from his code
-  // const board = getBoardRef(); The instructor uses this
+  const uid = auth.currentUser.uid;
+  const board = doc(db, "boards", uid);
 
   return setDoc(board, data, { merge: true });
 }
@@ -144,18 +129,6 @@ export function deleteColumn(columnId) {
 // DELETETASKS FUNCTION
 export function deleteTasks(taskIds) {
   const uid = auth.currentUser.uid;
-  // const tasks = doc(db, "boards", uid);
-  // const tasks = collection(db, "board", uid, column, "tasks");
-
-  // const db = firebase.firestore();
-  // const batch = db.batch();
-
-  // taskIds.forEach((taskId) => {
-  //   const taskRef = doc(db);
-  //   deleteDoc(taskRef);
-  // });
-
-  // return batch.commit();
   return;
 }
 

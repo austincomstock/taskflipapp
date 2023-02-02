@@ -23,8 +23,6 @@ export const AddColumn = ({ data, setData }) => {
   const classes = useStyles();
 
   const addColumn = () => {
-    // Get column id numbers as an array
-    // ["column-1", "column-2"] => [1,2]
     const columnIds = Object.keys(data.columns).map((id) =>
       Number(id.split("-")[1])
     );
