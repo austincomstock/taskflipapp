@@ -2,7 +2,6 @@
 import "./App.css";
 import { Component } from "react";
 import { Columns } from "./components/board/Columns";
-// import initialData from "./initialData";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { SignIn } from "./components/views/SignIn";
 import { SignOut } from "./components/views/SignOut";
@@ -11,28 +10,23 @@ import Navbar from "./components/views/Navbar";
 import { React } from "react";
 
 // FIRESTORE DB IMPORTS
-// import * as db from "./database/firestoreFunctions"; - This is what the instrcutor uses. This throws an error. "Identifer db has already been declared"
+// import * as db from "./database/firestoreFunctions"; - This is what the instructor uses. This throws an error. "Identifier db has already been declared"
 import * as firestoreFunctions from "./database/firestoreFunctions"; // I name it firestoreFunctions to avoid the error mentioned above.
 
 // FIREBASE IMPORTS
-// import firebase from 'firebase' - This is what the instrcutor uses. This throws an error.
-// import "firebase/firestore"; - This is what the instrcutor uses. This throws an error.
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 import "firebase/compat/firestore";
 import firebaseConfig from "./config/firebase-config.json";
-
-import { getAuth, onAuthStateChanged } from "firebase/auth"; // Add this from the refactor v9 documenation https://firebase.google.com/docs/web/modular-upgrade#update_imports_to_v9_compat
-import { getFirestore } from "firebase/firestore"; // Add this from the refactor v9 documenation https://firebase.google.com/docs/web/modular-upgrade#update_imports_to_v9_compat
+import { getAuth, onAuthStateChanged } from "firebase/auth"; // Add this from the refactor v9 documentation https://firebase.google.com/docs/web/modular-upgrade#update_imports_to_v9_compat
+import { getFirestore } from "firebase/firestore"; // Add this from the refactor v9 documentation https://firebase.google.com/docs/web/modular-upgrade#update_imports_to_v9_compat
 import { createTheme, ThemeProvider, Paper } from "@material-ui/core";
 
 // INIT FIREBASE
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 
-// const db = firebaseApp.firestore();
-// const auth = firebase.auth;
-const db = getFirestore(firebaseApp); // Add this from the refactor v9 documenation https://firebase.google.com/docs/web/modular-upgrade#update_imports_to_v9_compat
-const auth = getAuth(firebaseApp); // Add this from the refactor v9 documenation https://firebase.google.com/docs/web/modular-upgrade#update_imports_to_v9_compat
+const db = getFirestore(firebaseApp); // Add this from the refactor v9 documentation https://firebase.google.com/docs/web/modular-upgrade#update_imports_to_v9_compat
+const auth = getAuth(firebaseApp); // Add this from the refactor v9 documentation https://firebase.google.com/docs/web/modular-upgrade#update_imports_to_v9_compat
 
 export { auth, db };
 
@@ -58,7 +52,6 @@ class App extends Component {
       if (user) {
         console.log("User is signed in!");
 
-        // db.watchProfile(); //- This is what the instrcutor uses
         firestoreFunctions.watchProfile((data) =>
           this.setState({ user: data })
         );
