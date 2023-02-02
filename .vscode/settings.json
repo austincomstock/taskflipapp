@@ -1,8 +1,11 @@
 {
   "cSpell.words": [
+    "appspot",
     "DELETECOLUMN",
     "DELETETASKS",
+    "dndtodoapp",
     "exisit",
+    "firebaseapp",
     "firebaseui",
     "firestore",
     "POPFROMCOLUMNORDER",
@@ -14,9 +17,10 @@
     "SETPROFILE",
     "SETTASK",
     "signout",
+    "Uaqn",
     "WATCHBOARD",
     "WATCHCOLUMNS",
     "WATCHTASKS"
   ],
-  "cSpell.ignoreWords": ["WATCHPROFILE", "unsub"]
+  "cSpell.ignoreWords": ["WATCHPROFILE", "taskflipapp", "unsub"]
 }
