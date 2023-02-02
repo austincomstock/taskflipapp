@@ -1,3 +1,22 @@
 {
-  "cSpell.words": ["firebaseui", "firestore", "signout"]
+  "cSpell.words": [
+    "DELETECOLUMN",
+    "DELETETASKS",
+    "exisit",
+    "firebaseui",
+    "firestore",
+    "POPFROMCOLUMNORDER",
+    "POPTASKID",
+    "PUSHTASKID",
+    "PUSHTOCOLUMNORDER",
+    "SETBOARD",
+    "SETCOLUMN",
+    "SETPROFILE",
+    "SETTASK",
+    "signout",
+    "WATCHBOARD",
+    "WATCHCOLUMNS",
+    "WATCHTASKS"
+  ],
+  "cSpell.ignoreWords": ["WATCHPROFILE", "unsub"]
 }
