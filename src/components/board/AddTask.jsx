@@ -31,28 +31,12 @@ export const AddTask = ({ data, setData, columnId }) => {
     // Get task id
     const taskId = `task-${nextIndex}`;
 
-    // setTask(taskId, { id: taskId, content: "Click to edit" }); // - The insturctor uses this
-    // pushTaskId(columnId, taskId); // - The insturctor uses this
-
-    // // Tony helped me with something like this in AddColumn.jsx
     setTask(taskId, {
       id: taskId,
       content: "Click to edit",
     }).then(() => {
       pushTaskId(columnId, taskId);
     });
-
-    // Create new task object - The instructor comments this out. When I do this the add task
-    // const tasks = { ...data.tasks };
-    // tasks[taskId] = { id: taskId, content: "Click to edit" };
-
-    // // Create new column object
-    // const columns = { ...data.columns };
-    // columns[columnId].taskIds.push(taskId);
-
-    // // Create and set state
-    // const newState = { ...data, columns, tasks };
-    // setData(newState);
   };
 
   return (

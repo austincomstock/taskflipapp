@@ -39,9 +39,6 @@ export const Task = ({ task, index, data, setData, columnId }) => {
       setEditContentMode(false);
 
       if (content !== task.content) {
-        // const newData = { ...data };
-        // newData.tasks[task.id].content = content;
-        // setData(newData);
         setTask(task.id, { content });
       }
     }

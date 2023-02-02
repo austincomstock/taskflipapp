@@ -22,7 +22,6 @@ export const Columns = ({ data, setData }) => {
     if (!column) return null;
 
     const tasks = column.taskIds.map((taskID) => data.tasks[taskID]);
-    // const tasks = [column.taskIds];
 
     return (
       <Column
@@ -49,7 +48,7 @@ export const Columns = ({ data, setData }) => {
     // Return if there is no destination
     if (!destination) return;
 
-    // Retrun if the item is dropped where it came from
+    // Return if the item is dropped where it came from
     if (
       destination.droppableId === source.droppableId &&
       destination.index === source.index
@@ -74,8 +73,6 @@ export const Columns = ({ data, setData }) => {
 
       setData(newState);
       setBoard({ columnOrder: newColumnOrder });
-      // console.log(newColumnOrder);
-      // console.log(data.columnOrder);
       return;
     }
 

@@ -52,9 +52,6 @@ export const Column = ({ column, tasks, index, data, setData, isDragging }) => {
     // Update the data with the new title
     if (title !== column.title) {
       setColumn(column.id, { title });
-      //   const newState = { ...data };
-      //   newState.columns[column.id].title = title;
-      //   setData(newState);
     }
   };
 
@@ -67,35 +64,10 @@ export const Column = ({ column, tasks, index, data, setData, isDragging }) => {
       deleteTasks(column.taskIds);
       deleteColumn(column.id);
       popFromColumnOrder(column.id);
-
-      //   // Remove from columnOrder
-      //   const columnOrder = Array.from(data.columnOrder);
-      //   const index = columnOrder.indexOf(column.id);
-      //   columnOrder.splice(index, 1);
-
-      //   // Remove tasks
-      //   const tasks = { ...data.tasks };
-      //   data.columns[column.id].taskIds.forEach((taskId) => {
-      //     delete tasks[taskId];
-      //   });
-
-      //   // Remove the column
-      //   const columns = { ...data.columns };
-      //   delete columns[column.id];
-
-      //   // Create and set the new state
-      //   const newData = {
-      //     columnOrder,
-      //     columns,
-      //     tasks,
-      //   };
-      //   setData(newData);
     }
   };
 
   const taskComponents = tasks.map((task, index) => {
-    // console.log(task);
-    // console.log(index);
     if (!task) return null;
     return (
       <Task
@@ -153,7 +125,6 @@ export const Column = ({ column, tasks, index, data, setData, isDragging }) => {
               variant="h5"
               {...provided.dragHandleProps}
               onClick={onTitleClick}
-              // className={classes.title}
             >
               {column.title}
             </Typography>

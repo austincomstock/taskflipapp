@@ -38,24 +38,6 @@ export const AddColumn = ({ data, setData }) => {
     }).then(() => {
       pushToColumnOrder(nextKey);
     });
-
-    // // Create new columns object
-    // const columns = {
-    //   ...data.columns,
-    //   [nextKey]: {
-    //     id: nextKey,
-    //     title: "New Column",
-    //     taskIds: [],
-    //   },
-    // };
-
-    // // Add column to columnOrder
-    // const columnOrder = Array.from(data.columnOrder);
-    // columnOrder.push(nextKey);
-
-    // // Create and update state
-    // const nextData = { ...data, columns, columnOrder };
-    // setData(nextData);
   };
 
   return (
